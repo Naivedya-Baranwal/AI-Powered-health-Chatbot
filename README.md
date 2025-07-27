@@ -4,6 +4,9 @@ A simple AI-powered **Healthcare Assistant Chatbot** built using `Streamlit`, `T
 
 ---
 
+[🔗 View Live AI Health Chatbot](https://naivedya-baranwal-ai-powered-health-chatbot-app-pwvsnz.streamlit.app/)
+---
+
 ## 🚀 Features
 
 - Responds to healthcare-related queries like symptoms, appointments, and medications.
