@@ -3,3 +3,6 @@ transformers
 tensorflow
 nltk
 tf-keras
+numpy<2
+torch
+accelerate

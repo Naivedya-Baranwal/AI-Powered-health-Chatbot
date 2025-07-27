@@ -20,10 +20,26 @@ def healthcare_chatbot(user_input):
         return "Please contact your healthcare provider to schedule an appointment."
     elif "medication" in user_input:
         return "Please consult a doctor for proper medication treatment."
+    elif "fever" in user_input.lower():
+        return "If you have a fever, rest, stay hydrated, and monitor your temperature. If it's above 103°F (39.4°C) or persists for more than 3 days, consult a doctor."
+    elif "headache" in user_input.lower():
+        return "For headaches, try rest, hydration, and over-the-counter pain relievers. If severe or persistent, seek medical attention."
+    elif "cough" in user_input.lower():
+        return "Stay hydrated, use honey for soothing, and rest. If cough persists for more than 2 weeks or is severe, see a doctor."
+    elif "pain" in user_input.lower():
+        return "Pain can have many causes. If it's severe, persistent, or accompanied by other symptoms, please seek medical attention immediately."
+    elif "dizzy" in user_input.lower():
+        return "If you're feeling dizzy, sit or lie down immediately. If it's severe or accompanied by other symptoms, seek medical help."
+    elif "nausea" in user_input.lower():
+        return "Try small sips of clear fluids and bland foods. If severe or persistent, consult a doctor."
+    elif "fatigue" in user_input.lower():
+        return "Ensure adequate sleep, nutrition, and hydration. If fatigue is severe or persistent, it could indicate an underlying condition."
     else:
-        response = chatbot(user_input,max_length=500,num_return_sequences=1)
-        
-    return response[0]['generated_text']
+        # For general queries, provide a more helpful response
+        if any(word in user_input.lower() for word in ["how", "what", "why", "when", "where"]):
+            return "I'm here to help with general health information. For specific medical advice, please consult a healthcare professional. How can I assist you today?"
+        else:
+            return "I'm your healthcare assistant. I can provide general health information, but for specific medical advice, please consult a healthcare professional. What would you like to know about?"
 
 def main():
     st.title("Healthcare Assistant Chatbot")
@@ -34,7 +50,6 @@ def main():
             st.write("User :", user_input)
             with st.spinner("processing your query, Please wait..."):
                 response=healthcare_chatbot(user_input)
-            healthcare_chatbot(user_input)
             st.write("Healthcare Assistant : ",response)
         else :
             st.write("Please enter a message to get a response")
